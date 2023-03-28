@@ -38,12 +38,24 @@ namespace EntityFrameworkDbFirst
 
             var sonuc3 = db.Urunler.Join(db.Kategoriler, u => u.KategoriID, k => k.KategoriID, (urn, kat) => new { urn, kat.KategoriAdi }).Join(db.Tedarikciler, prd => prd.urn.TedarikciID, t=> t.TedarikciID,(birincitablo,ikincitablo) => new {birincitablo.urn.UrunID, birincitablo.urn.UrunAdi, birincitablo.urn.BirimFiyati, birincitablo.urn.HedefStokDuzeyi, birincitablo.urn.TedarikciID, birincitablo.urn.KategoriID, birincitablo.KategoriAdi, ikincitablo.SirketAdi  } );
 
+            var sonuc4 = from urun in db.Urunler select new
+           {
+                urun.UrunID
+                , urun.UrunAdi
+                ,urun.BirimFiyati
+            };
+            var sonuc5 = from urun in db.Urunler
+                         join kat in db.Kategoriler
+                         on urun.KategoriID equals kat.KategoriID
+                         join ted in db.Tedarikciler
+                         on urun.TedarikciID equals ted.TedarikciID
+                         select new                        {urun.UrunID,urun.UrunAdi,urun.BirimFiyati,urun.HedefStokDuzeyi,kat.KategoriAdi,ted.SirketAdi };
+
 
             // dataGridViewUrunler.DataSource = sonuc1.ToList();
             //dataGridViewUrunler.DataSource = sonuc2.ToList();
-            dataGridViewUrunler.DataSource = sonuc3.ToList();
-
-            // dataGridViewUrunler.DataSource = db.Urunler.ToList();
+            dataGridViewUrunler.DataSource = sonuc5.ToList();
+           // dataGridViewUrunler.DataSource = db.Urunler.ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -165,6 +177,12 @@ namespace EntityFrameworkDbFirst
 
             }
             dataGridViewUrunler.DataSource = db. Urunler.ToList();
+        }
+
+        private void buttonrapor_Click(object sender, EventArgs e)
+        {
+            RaporForm raporForm = new RaporForm();
+            raporForm.ShowDialog();
         }
     }
 }

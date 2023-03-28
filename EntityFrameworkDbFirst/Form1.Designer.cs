@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewUrunler = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sİLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxKategoriler = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,12 +51,11 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sİLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonrapor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUrunler)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpdFiyat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpdStok)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewUrunler
@@ -69,10 +70,25 @@
             this.dataGridViewUrunler.RowHeadersWidth = 51;
             this.dataGridViewUrunler.RowTemplate.Height = 24;
             this.dataGridViewUrunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUrunler.Size = new System.Drawing.Size(838, 544);
+            this.dataGridViewUrunler.Size = new System.Drawing.Size(967, 544);
             this.dataGridViewUrunler.TabIndex = 0;
             this.dataGridViewUrunler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUrunler_CellClick);
             this.dataGridViewUrunler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUrunler_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sİLToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(98, 28);
+            // 
+            // sİLToolStripMenuItem
+            // 
+            this.sİLToolStripMenuItem.Name = "sİLToolStripMenuItem";
+            this.sİLToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.sİLToolStripMenuItem.Text = "SİL";
+            this.sİLToolStripMenuItem.Click += new System.EventHandler(this.sİLToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -240,7 +256,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(858, 96);
+            this.button4.Location = new System.Drawing.Point(459, 730);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(142, 33);
             this.button4.TabIndex = 5;
@@ -250,7 +266,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(858, 135);
+            this.button5.Location = new System.Drawing.Point(607, 730);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(142, 33);
             this.button5.TabIndex = 5;
@@ -258,32 +274,28 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // contextMenuStrip1
+            // buttonrapor
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sİLToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(98, 28);
-            // 
-            // sİLToolStripMenuItem
-            // 
-            this.sİLToolStripMenuItem.Name = "sİLToolStripMenuItem";
-            this.sİLToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.sİLToolStripMenuItem.Text = "SİL";
-            this.sİLToolStripMenuItem.Click += new System.EventHandler(this.sİLToolStripMenuItem_Click);
+            this.buttonrapor.Location = new System.Drawing.Point(858, 12);
+            this.buttonrapor.Name = "buttonrapor";
+            this.buttonrapor.Size = new System.Drawing.Size(122, 33);
+            this.buttonrapor.TabIndex = 5;
+            this.buttonrapor.Text = "Raporlar";
+            this.buttonrapor.UseVisualStyleBackColor = true;
+            this.buttonrapor.Click += new System.EventHandler(this.buttonrapor_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 750);
+            this.ClientSize = new System.Drawing.Size(1002, 818);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.radioButtonArtan);
             this.Controls.Add(this.radioButtonAzalan);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonrapor);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpdStok);
             this.Controls.Add(this.numericUpdFiyat);
@@ -305,9 +317,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUrunler)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpdFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpdStok)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,6 +349,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sİLToolStripMenuItem;
+        private System.Windows.Forms.Button buttonrapor;
     }
 }
 
